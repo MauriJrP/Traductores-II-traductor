@@ -25,7 +25,7 @@ function App() {
 	};
 
 	return (
-		<div className="bg-slate-100 h-screen">
+		<div className="bg-slate-100 h-full min-h-screen">
 			<h1 className="bg-slate-700 p-5 font-bold text-3xl text-center text-white">
 				Traductor
 			</h1>
@@ -70,7 +70,9 @@ function App() {
 					></textarea>
 				</div>
 			</div>
-			<TokensTable elements={elements} />
+			<div className="pb-12">
+				<TokensTable elements={elements} />
+			</div>
 		</div>
 	);
 }

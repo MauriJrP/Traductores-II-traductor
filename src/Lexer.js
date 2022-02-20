@@ -122,13 +122,13 @@ class Lexer {
 			else if (lexeme === 'else') return 'else';
 			else if (lexeme === 'while') return 'while';
 			else if (lexeme === 'return') return 'return';
-			else if (lexeme === 'int') return 'int';
-			else if (lexeme === 'float') return 'float';
-			else if (lexeme === 'void') return 'void';
-			else return 'identificador';
+			else if (lexeme === 'int') return 'Tipo de dato';
+			else if (lexeme === 'float') return 'Tipo de dato';
+			else if (lexeme === 'void') return 'Tipo de dato';
+			else return 'id';
 		} else if (state === 'string') return 'cadena';
-		else if (state === 'number') return 'entero';
-		else if (state === 'float') return 'real';
+		else if (state === 'number') return 'constante';
+		else if (state === 'float') return 'constante';
 		else if (state === 'operator') {
 			if (
 				lexeme === '<=' ||
@@ -136,14 +136,14 @@ class Lexer {
 				lexeme === '<' ||
 				lexeme === '>'
 			)
-				return 'opRelac';
-			else if (lexeme === '==' || lexeme === '!=') return 'opIgualdad';
-			else if (lexeme === '||') return 'opOr';
-			else if (lexeme === '&&') return 'opAnd';
-			else if (lexeme === '!') return 'opNot';
+				return 'opRelacional';
+			else if (lexeme === '==' || lexeme === '!=') return 'opRelacional';
+			else if (lexeme === '||') return 'opLogico';
+			else if (lexeme === '&&') return 'opLogico';
+			else if (lexeme === '!') return 'opLogico';
 			else if (lexeme === '+' || lexeme === '-') return 'opSuma';
-			else if (lexeme === '*' || lexeme === '/') return 'opMul';
-			else if (lexeme === '=') return 'opAsignacion';
+			else if (lexeme === '*' || lexeme === '/') return 'opMultiplicacion';
+			else if (lexeme === '=') return '=';
 			else return 'operador';
 		} else if (state === 'symbol') {
 			if (lexeme === ';') return ';';
@@ -158,32 +158,26 @@ class Lexer {
 	};
 
 	getType = (token) => {
-		if (token === 'identificador') return '0';
-		else if (token === 'entero') return '1';
-		else if (token === 'real') return '2';
-		else if (token === 'cadena') return '3';
-		else if (token === 'int' || token === 'float' || token === 'void')
-			return '4';
-		else if (token === 'opSuma') return '5';
-		else if (token === 'opMul') return '6';
-		else if (token === 'opRelac') return '7';
-		else if (token === 'opOr') return '8';
-		else if (token === 'opAnd') return '9';
-		else if (token === 'opNot') return '10';
-		else if (token === 'opIgualdad') return '11';
-		else if (token === ';') return '12';
-		else if (token === ',') return '13';
-		else if (token === '(') return '14';
-		else if (token === ')') return '15';
-		else if (token === '{') return '16';
-		else if (token === '}') return '17';
-		else if (token === 'opAsignacion') return '18';
-		else if (token === 'if') return '19';
-		else if (token === 'while') return '20';
-		else if (token === 'return') return '21';
-		else if (token === 'else') return '22';
-		else if (token === '$') return '23';
-		else if (token === 'error') return '24';
+		if (token === 'Tipo de dato') return '0';
+		else if (token === 'id') return '1';
+		else if (token === ';') return '2';
+		else if (token === ',') return '3';
+		else if (token === '(') return '4';
+		else if (token === ')') return '5';
+		else if (token === '{') return '6';
+		else if (token === '}') return '7';
+		else if (token === '=') return '8';
+		else if (token === 'if') return '9';
+		else if (token === 'while') return '10';
+		else if (token === 'return') return '11';
+		else if (token === 'else') return '12';
+		else if (token === 'constante') return '13';
+		else if (token === 'opSuma') return '14';
+		else if (token === 'opLogico') return '15';
+		else if (token === 'opMultiplicacion') return '16';
+		else if (token === 'opRelacional') return '17';
+		else if (token === '$') return '18';
+		else if (token === 'error') return '-1';
 	};
 
 	isTokenComplete = (c, i, l, state, tc) => {
