@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Traductores-II-traductor/static/css/main.2950f024.css",
+    "main.js": "/Traductores-II-traductor/static/js/main.ec570221.js",
+    "index.html": "/Traductores-II-traductor/index.html",
+    "main.2950f024.css.map": "/Traductores-II-traductor/static/css/main.2950f024.css.map",
+    "main.ec570221.js.map": "/Traductores-II-traductor/static/js/main.ec570221.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2950f024.css",
+    "static/js/main.ec570221.js"
+  ]
+}
